@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestra Boda - Ana & Carlos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #7e525a;
+      --secondary-color: #f8e1e5;
+      --accent-color: #ffc0cb;
+      --text-light: #fff;
+      --text-dark: #333;
+      --overlay: rgba(0, 0, 0, 0.7);
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('https://i.postimg.cc/2SfgYSLN/Whats-App-Image-2025-01-13-at-16-59-03.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-light);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .mensaje {
+      background-color: var(--overlay);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5em;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 1.5em;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--secondary-color);
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .contador {
+      font-size: 1.8em;
+      margin: 30px 0;
+      color: var(--secondary-color);
+      background: var(--overlay);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contador span {
+      display: inline-block;
+      min-width: 60px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    form {
+      flex: 1;
+      min-width: 300px;
+      max-width: 450px;
+      margin: 0;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text-dark);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: slideInRight 1s ease-out;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(217, 78, 103, 0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: #b8384f;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .qr-section {
+      flex: 1;
+      min-width: 300px;
+      max-width: 450px;
+      background: var(--overlay);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: slideInLeft 1s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .qr {
+      margin: 20px auto;
+    }
+
+    .qr img {
+      border: 10px solid white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .qr img:hover {
+      transform: scale(1.05);
+    }
+
+    .location {
+      margin-top: 40px;
+      background: var(--overlay);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .location h3 {
+      margin-bottom: 20px;
+    }
+
+    .map {
+      height: 300px;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      margin-top: 15px;
+    }
+
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--overlay);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-control i {
+      font-size: 24px;
+      color: white;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floral-divider {
+      margin: 30px auto;
+      width: 150px;
+      height: 30px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M10,10 Q15,5 20,10 Q25,15 30,10 Q35,5 40,10 Q45,15 50,10 Q55,5 60,10 Q65,15 70,10 Q75,5 80,10" stroke="%23ffe4ec" fill="none" stroke-width="2"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      
+      h2 {
+        font-size: 1.2em;
+      }
+      
+      .contador {
+        font-size: 1.3em;
+        padding: 15px;
+      }
+      
+      .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      form, .qr-section {
+        width: 100%;
+      }
+    }
+
+    /* Animación de confeti */
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="mensaje">
+      <h1>Alexa & Roy</h1>
+      <h2>20 de Julio, 2025</h2>
+      <div class="floral-divider"></div>
+      <p>
+        A veces, el destino une dos almas con un lazo invisible, y sabemos que esta unión estaba escrita en las estrellas.<br>
+        Queremos compartir contigo este momento único en nuestras vidas.
+      </p>
+    </div>
+
+    <div class="contador" id="contador">
+      <div><span id="dias">00</span> días</div>
+      <div><span id="horas">00</span> horas <span id="minutos">00</span> minutos <span id="segundos">00</span> segundos</div>
+    </div>
+
+    <div class="content-wrapper">
+      <form id="confirmationForm">
+        <h3>Confirmar Asistencia</h3>
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. María González" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="acompanantes">Número de acompañantes</label>
+          <input type="number" id="acompanantes" name="acompanantes" min="0" max="5" placeholder="0" required />
+        </div>
+        <div class="form-group">
+          <label for="asistencia">¿Asistirás?</label>
+          <select id="asistencia" name="asistencia" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Sí">¡Con mucho gusto!</option>
+            <option value="No">Lamentablemente no podré asistir</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje para los novios (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i> Enviar Confirmación
+        </button>
+      </form>
+
+      <div class="qr-section">
+        <h3>Detalles de la Boda</h3>
+        <p><i class="fas fa-calendar-alt"></i> 20 de Julio, 2025</p>
+        <p><i class="fas fa-clock"></i> 15:00 horas</p>
+        <p><i class="fas fa-church"></i> Catedral de florencia</p>
+        <p><i class="fas fa-map-marker-alt"></i> Florencia, Caqueta</p>
+        
+        <div class="floral-divider"></div>
+        
+        <h3>Invitación Digital</h3>
+        <div class="qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://tuboda.com/invitacion&size=200x200&bgcolor=ffffff&color=da3e65" alt="QR de la invitación" />
+          <p>Escanea el código para más información</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="location">
+      <h3><i class="fas fa-map-marked-alt"></i> Ubicación de la Ceremonia</h3>
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888614771461!2d-99.1278266845336!3d19.43262998689114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b75aa014d%3A0x17d810d20da6e8cf!2sCatedral%20Metropolitana%20de%20la%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1620000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_b1bd12e6d3.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="music-control" id="musicControl">
+    <i class="fas fa-music"></i>
+  </div>
+
+  <!-- Lluvia de corazones -->
+  <canvas id="canvas"></canvas>
+
+  <script>
+    // Contador regresivo mejorado
+    const fechaBoda = new Date("2025-07-20T15:00:00").getTime();
+    
+    function updateCounter() {
+      const ahora = new Date().getTime();
+      const distancia = fechaBoda - ahora;
+
+      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").textContent = dias.toString().padStart(2, '0');
+      document.getElementById("horas").textContent = horas.toString().padStart(2, '0');
+      document.getElementById("minutos").textContent = minutos.toString().padStart(2, '0');
+      document.getElementById("segundos").textContent = segundos.toString().padStart(2, '0');
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    // Formulario con validación mejorada
+    const form = document.getElementById("confirmationForm");
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx4rulHex_A196S7hNAxAva4CjHOLGAsfKt7EKkZ2lS-4liuCUKAVgCXFnWA_z2KTMXlg/exec"; // Reemplaza con tu URL
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      try {
+        // Mostrar estado de carga
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        
+        const formData = new FormData(form);
+        const response = await fetch(scriptURL, { 
+          method: "POST", 
+          body: formData 
+        });
+        
+        if (response.ok) {
+          // Mostrar confeti al enviar correctamente
+          showConfetti();
+          
+          // Mostrar mensaje de éxito
+          Swal.fire({
+            title: '¡Gracias!',
+            text: 'Tu confirmación ha sido enviada con éxito.',
+            icon: 'success',
+            confirmButtonText: 'Cerrar',
+            background: 'rgba(255, 255, 255, 0.95)',
+            backdrop: `
+              rgba(0,0,0,0.5)
+              url("https://i.gifer.com/7efs.gif")
+              center top
+              no-repeat
+            `
+          });
+          
+          form.reset();
+        } else {
+          throw new Error('Error en la respuesta del servidor');
+        }
+      } catch (error) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Hubo un problema al enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.',
+          icon: 'error',
+          confirmButtonText: 'Entendido'
+        });
+        console.error('Error:', error);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+
+    // Control de música
+    const bgMusic = document.getElementById("bgMusic");
+    const musicControl = document.getElementById("musicControl");
+    let isPlaying = false;
+
+    // Intentar reproducir música después de interacción del usuario
+    function enableAudio() {
+      if (!isPlaying) {
+        bgMusic.volume = 0.3;
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+        }).catch(e => console.log("Autoplay prevented:", e));
+      }
+    }
+
+    musicControl.addEventListener('click', () => {
+      if (isPlaying) {
+        bgMusic.pause();
+        musicControl.innerHTML = '<i class="fas fa-music"></i>';
+      } else {
+        bgMusic.play();
+        musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Mostrar botón de música después de interacción del usuario
+    document.body.addEventListener('click', enableAudio, { once: true });
+
+    // Corazones mejorados
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Heart {
+      constructor() {
+        this.reset();
+        this.size = Math.random() * 20 + 10;
+        this.speed = Math.random() * 1 + 0.5;
+        this.opacity = Math.random() * 0.7 + 0.3;
+        this.color = `rgba(${Math.floor(Math.random() * 50 + 200)}, 
+                      ${Math.floor(Math.random() * 50 + 50)}, 
+                      ${Math.floor(Math.random() * 50 + 100)}, 
+                      ${this.opacity})`;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = Math.random() * 0.05 - 0.025;
+      }
+      
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -100;
+      }
+      
+      update() {
+        this.y += this.speed;
+        this.rotation += this.rotationSpeed;
+        
+        if (this.y > canvas.height + this.size) {
+          this.reset();
+          this.y = Math.random() * -100;
+        }
+      }
+      
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = this.color;
+        
+        // Dibujar corazón
+        ctx.beginPath();
+        const topCurveHeight = this.size * 0.3;
+        ctx.moveTo(0, 0);
+        
+        // Curva izquierda
+        ctx.bezierCurveTo(
+          -this.size/2, -topCurveHeight,
+          -this.size, 0,
+          0, this.size
+        );
+        
+        // Curva derecha
+        ctx.bezierCurveTo(
+          this.size, 0,
+          this.size/2, -topCurveHeight,
+          0, 0
+        );
+        
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const hearts = Array(50).fill().map(() => new Heart());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hearts.forEach(heart => {
+        heart.update();
+        heart.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Redimensionar canvas al cambiar tamaño de ventana
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Función para mostrar confeti
+    function showConfetti() {
+      const confettiContainer = document.createElement('div');
+      confettiContainer.style.position = 'fixed';
+      confettiContainer.style.top = '0';
+      confettiContainer.style.left = '0';
+      confettiContainer.style.width = '100%';
+      confettiContainer.style.height = '100%';
+      confettiContainer.style.pointerEvents = 'none';
+      confettiContainer.style.zIndex = '1000';
+      document.body.appendChild(confettiContainer);
+
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+      
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.borderRadius = '50%';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.top = '-10px';
+        confetti.style.opacity = Math.random() * 0.7 + 0.3;
+        confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear forwards`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        confettiContainer.appendChild(confetti);
+      }
+
+      setTimeout(() => {
+        confettiContainer.remove();
+      }, 5000);
+    }
+
+    // SweetAlert2 para mejores alertas
+    const Swal = {
+      fire: (options) => {
+        const alertDiv = document.createElement('div');
+        alertDiv.style.position = 'fixed';
+        alertDiv.style.top = '50%';
+        alertDiv.style.left = '50%';
+        alertDiv.style.transform = 'translate(-50%, -50%)';
+        alertDiv.style.backgroundColor = options.background || 'white';
+        alertDiv.style.padding = '30px';
+        alertDiv.style.borderRadius = '10px';
+        alertDiv.style.boxShadow = '0 5px 30px rgba(0,0,0,0.3)';
+        alertDiv.style.zIndex = '2000';
+        alertDiv.style.maxWidth = '80%';
+        alertDiv.style.textAlign = 'center';
+        
+        alertDiv.innerHTML = `
+          <h3 style="margin-top: 0; color: var(--primary-color);">${options.title}</h3>
+          <p>${options.text}</p>
+          <button style="
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+          ">${options.confirmButtonText}</button>
+        `;
+        
+        document.body.appendChild(alertDiv);
+        
+        const closeAlert = () => {
+          document.body.removeChild(alertDiv);
+          if (options.backdrop) {
+            document.body.removeChild(backdrop);
+          }
+        };
+        
+        alertDiv.querySelector('button').addEventListener('click', closeAlert);
+        
+        if (options.backdrop) {
+          const backdrop = document.createElement('div');
+          backdrop.style.position = 'fixed';
+          backdrop.style.top = '0';
+          backdrop.style.left = '0';
+          backdrop.style.width = '100%';
+          backdrop.style.height = '100%';
+          backdrop.style.backgroundColor = 'rgba(0,0,0,0.5)';
+          backdrop.style.zIndex = '1999';
+          document.body.appendChild(backdrop);
+          
+          backdrop.addEventListener('click', closeAlert);
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>
